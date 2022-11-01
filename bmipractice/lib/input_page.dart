@@ -11,17 +11,20 @@ class InputPage extends StatefulWidget {
   @override
   State<InputPage> createState() => _InputPageState();
 }
-
+enum Gender{
+  male,
+  female,
+}
 class _InputPageState extends State<InputPage> {
   Color maleColor = deactiveColor;
   Color femaleColor = deactiveColor;
-  void updateColor(int gender)
+  void updateColor(Gender gendertype)
   {
-    if (gender==1){
+    if (gendertype == Gender.male){
       maleColor = activeColor;
       femaleColor = deactiveColor;
     }
-    if (gender==2){
+    if (gendertype == Gender.female){
       maleColor = deactiveColor;
       femaleColor = activeColor;
     }
@@ -40,7 +43,7 @@ class _InputPageState extends State<InputPage> {
                 onTap: ()
       {
        setState(() {
-         updateColor(1);
+         updateColor(Gender.male);
        });
       },
                 child: RepeatContainerCode(
@@ -55,7 +58,7 @@ class _InputPageState extends State<InputPage> {
                 onTap: ()
                 {
                   setState(() {
-                    updateColor(2);
+                    updateColor(Gender.female);
                   });
                 },
                 child: RepeatContainerCode(
