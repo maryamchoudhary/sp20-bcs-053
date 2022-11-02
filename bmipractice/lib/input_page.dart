@@ -16,19 +16,7 @@ enum Gender{
   female,
 }
 class _InputPageState extends State<InputPage> {
-  Color maleColor = deactiveColor;
-  Color femaleColor = deactiveColor;
-  void updateColor(Gender gendertype)
-  {
-    if (gendertype == Gender.male){
-      maleColor = activeColor;
-      femaleColor = deactiveColor;
-    }
-    if (gendertype == Gender.female){
-      maleColor = deactiveColor;
-      femaleColor = activeColor;
-    }
-  }
+  late Gender select;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -43,11 +31,11 @@ class _InputPageState extends State<InputPage> {
                 onTap: ()
       {
        setState(() {
-         updateColor(Gender.male);
+         select = Gender.male;
        });
       },
                 child: RepeatContainerCode(
-          colors: maleColor,
+          colors: select == Gender.male?activeColor:deactiveColor,
       cardWidget: RepeatTextandICONWidget(
         iconData: FontAwesomeIcons.male,
         label: 'Male',
@@ -58,11 +46,11 @@ class _InputPageState extends State<InputPage> {
                 onTap: ()
                 {
                   setState(() {
-                    updateColor(Gender.female);
+                    select = Gender.female;
                   });
                 },
                 child: RepeatContainerCode(
-    colors: femaleColor,
+    colors: select == Gender.female?activeColor:deactiveColor,
     cardWidget: RepeatTextandICONWidget(
     iconData: FontAwesomeIcons.female,
     label: 'Female',
