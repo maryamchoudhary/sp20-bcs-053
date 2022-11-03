@@ -16,6 +16,7 @@ enum Gender{
 }
 class _InputPageState extends State<InputPage> {
   late Gender select;
+  int sliderHeight=180;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -55,15 +56,42 @@ class _InputPageState extends State<InputPage> {
                  ),
     ),
     Expanded(child: RepeatContainerCode(
-    colors: Color(0xFF1D1E33),
-    cardWidget: Column(
-    children: <Widget>[
-    Text('Height', style: kLabelStyle,),
+      colors: Color(0xFF1D1E33),
+      cardWidget: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+      children: <Widget>[
+      Text('Height', style: kLabelStyle,),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Text('sliderHeight',
+            style: kNumberStyle,
+            ),
+            Text('cm',
+            style: kLabelStyle,
+            ),
+          ],
+        ),
+        Slider(
+          value: sliderHeight.toDouble(),
+          min: 120.0,
+          max: 220.0,
+          activeColor: Color(0xFFEB1555),
+          inactiveColor: Color(0xFF8D8E98),
+          onChanged: (double value) {
+            setState(() {
+              sliderHeight = value.round();
+            });
+          },
+        ),
+      ],
+      ),
+      ),
+    ),
     ],
     ),
-    ),
-    ),
-    ],
+          ),
+        ],
     ),
           Expanded(child: Row(
 
@@ -71,9 +99,6 @@ class _InputPageState extends State<InputPage> {
     Expanded(child: RepeatContainerCode(
     colors: Color(0xFF1D1E33), cardWidget: null,
     ),
-    ),
-          ),
-    ],
     ),
           );
   }
