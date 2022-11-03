@@ -17,6 +17,7 @@ enum Gender{
 class _InputPageState extends State<InputPage> {
   late Gender select;
   int sliderHeight=180;
+  int sliderWeight=60;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -45,7 +46,7 @@ class _InputPageState extends State<InputPage> {
                 child: RepeatContainerCode(
                   onPressed: (){
                     setState(() {
-                      select == Gender.male;
+                      select == Gender.female;
                     });
                   },
     colors: select == Gender.female?activeColor:deactiveColor,
@@ -55,7 +56,11 @@ class _InputPageState extends State<InputPage> {
     ),
                  ),
     ),
-    Expanded(child: RepeatContainerCode(
+    Expanded(child: new RepeatContainerCode(
+      onPressed: (){
+        setState(() {
+        });
+      },
       colors: Color(0xFF1D1E33),
       cardWidget: Column(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -88,19 +93,49 @@ class _InputPageState extends State<InputPage> {
       ),
       ),
     ),
+              Expanded(child: Row(
+                  children: <Widget>[
+                    Expanded(child: RepeatContainerCode(
+                      onPressed: (){
+                        setState(() {
+                        });
+                      },
+                      colors: Color(0xFF1D1E33),
+                      cardWidget: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: <Widget>[
+                          Text('Weight',
+                          style: kLabelStyle,
+                          ),
+                          Text(
+                              sliderWeight.toString();
+                            style: kNumberStyle,
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children:<Widget> [
+
+                            ],
+                          )
+                        ],
+                      ),
+                    ),
+                    ),
+                    Expanded(child: RepeatContainerCode(
+                      colors: Color(0xFF1D1E33),
+
+                    ),
+                    ),
+                  ],
+    ) ,
+              ),
     ],
     ),
           ),
         ],
     ),
-          Expanded(child: Row(
 
-    ),),
-    Expanded(child: RepeatContainerCode(
-    colors: Color(0xFF1D1E33), cardWidget: null,
-    ),
-    ),
-          );
+    );
   }
 }
 
