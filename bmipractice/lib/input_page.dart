@@ -5,6 +5,7 @@ import 'icontextfile.dart';
 import 'containerfile.dart';
 import 'constantfile.dart';
 import 'resultFile.dart';
+import 'calculatefile.dart';
 class InputPage extends StatefulWidget {
 
 
@@ -188,6 +189,7 @@ class _InputPageState extends State<InputPage> {
                     GestureDetector(
                       onTap: (){
                         Navigator.push(context, MaterialPageRoute(builder:  (context)=> resultscreen()));
+                        CalculatorBrain calc= CalculatorBrain(height: sliderHeight, weight: sliderWeight)
                       },
                       child: Container(
                         child: Center(

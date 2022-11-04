@@ -3,8 +3,10 @@ import 'constantfile.dart';
 import 'containerfile.dart';
 import 'input_page.dart';
 class resultscreen extends StatelessWidget {
-  const resultscreen({Key? key}) : super(key: key);
-
+  resultscreen({required this.bmiResult, required this.interpretation, required this.ResultText,});
+final String bmiResult;
+final String ResultText;
+final String interpretation;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -25,8 +27,10 @@ class resultscreen extends StatelessWidget {
           Expanded(
               flex: 5,
               child: RepeatContainerCode(
+                onPressed: (){
+                },
                   colors: activeColor,
-                  cardwidget: Column(
+                  cardWidget: Column(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
@@ -41,7 +45,8 @@ class resultscreen extends StatelessWidget {
           ),
           Expanded(child:  GestureDetector(
             onTap: (){
-              Navigator.push(context, MaterialPageRoute(builder: (context)=> InputPage()));
+              Navigator.push(context, MaterialPageRoute(builder: (context)=> resultscreen(
+                  bmiResult: bmiResult, interpretation: interpretation, ResultText: ResultText)));
             },
               child: Container(
                   child:
@@ -54,8 +59,7 @@ class resultscreen extends StatelessWidget {
                   ),
               ),
           ),
-          ),
-        ],
+          ],
       ),
     );
   }
