@@ -12,3 +12,7 @@ const kNumberStyle=TextStyle(
 fontSize: 50.0,
 fontWeight: FontWeight.w900,
 );
+const klargeButtonstyle = TextStyle(
+  fontSize: 25.0,
+  fontWeight: FontWeight.bold,
+);

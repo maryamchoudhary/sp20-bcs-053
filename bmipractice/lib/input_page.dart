@@ -4,6 +4,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'icontextfile.dart';
 import 'containerfile.dart';
 import 'constantfile.dart';
+import 'resultFile.dart';
 class InputPage extends StatefulWidget {
 
 
@@ -184,11 +185,20 @@ class _InputPageState extends State<InputPage> {
                       ),
                     ),
                     ),
-                    Container(
-                      color: Color(0XFFEB1555),
-                      margin: EdgeInsets.only(top: 10.0),
-                      width: double.infinity,
-                      height: 80.0,
+                    GestureDetector(
+                      onTap: (){
+                        Navigator.push(context, MaterialPageRoute(builder:  (context)=> resultscreen()));
+                      },
+                      child: Container(
+                        child: Center(
+                          child: Text('Calculate',
+                            style: klargeButtonstyle,),
+                        ),
+                        color: Color(0XFFEB1555),
+                        margin: EdgeInsets.only(top: 10.0),
+                        width: double.infinity,
+                        height: 80.0,
+                      ),
                     ),
                   ],
     ) ,
@@ -212,7 +222,7 @@ class RoundIcon extends StatelessWidget {
   Widget build(BuildContext context) {
     return RawMaterialButton(
       child: Icon(iconData),
-        onPressed: onPress,
+      onPressed: onPressed,
       elevation: 6.0,
       constraints: BoxConstraints.tightFor(
         height: 56.0,
