@@ -1,13 +1,12 @@
 import 'dart:math';
-import 'dart:math';
-
 import 'package:flutter/cupertino.dart';
+import 'input_page.dart';
 
 class CalculatorBrain{
   CalculatorBrain({required this.height,required this.weight});
   final int height;
   final int weight;
-  double _bmi;
+  double _bmi=0;
 
   String calculate_bmi(){
     _bmi=weight/pow(height/100,2);

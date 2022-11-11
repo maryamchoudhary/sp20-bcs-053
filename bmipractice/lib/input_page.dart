@@ -188,8 +188,11 @@ class _InputPageState extends State<InputPage> {
                     ),
                     GestureDetector(
                       onTap: (){
-                        Navigator.push(context, MaterialPageRoute(builder:  (context)=> resultscreen()));
-                        CalculatorBrain calc= CalculatorBrain(height: sliderHeight, weight: sliderWeight)
+                        CalculatorBrain calcu=CalculatorBrain(height: sliderHeight, weight: sliderWeight,);
+                        Navigator.push(context, MaterialPageRoute(builder:  (context)=> resultscreen(
+                          bmiResult: calcu.calculate_bmi(),
+                          interpretation: calcu.get_interpretation(),
+                          ResultText: calcu.get_result(),)));
                       },
                       child: Container(
                         child: Center(
@@ -224,7 +227,7 @@ class RoundIcon extends StatelessWidget {
   Widget build(BuildContext context) {
     return RawMaterialButton(
       child: Icon(iconData),
-      onPressed: onPressed,
+      onPressed: (){},
       elevation: 6.0,
       constraints: BoxConstraints.tightFor(
         height: 56.0,
