@@ -1,6 +1,4 @@
 import 'dart:async';
-import 'dart:js';
-import 'package:path/path.dart';
 import 'package:flutter/material.dart';
 import 'CounterFile.dart';
 import 'CreateFile.dart';
@@ -29,20 +27,14 @@ class MyHomePage extends StatefulWidget {
 }
 class _MyHomePageState extends State<MyHomePage> {
   @override
-  void initState() {
-  }
-  @override
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
       height: double.infinity,
       decoration: const BoxDecoration(
         color: const Color(0xFF81C784),
-        image: DecorationImage(
-            image: AssetImage("images/tasbeeh pic.jpg"),
-            fit: BoxFit.cover),
-      ),
 
+    ),
     );
   }
 }
@@ -76,9 +68,6 @@ MaterialApp gfgApp() {
         height: double.infinity,
         decoration: const BoxDecoration(
           color: const Color(0xFF81C784),
-          image: DecorationImage(
-              image: AssetImage("images/ff.jpg"),
-              fit: BoxFit.cover),
         ),
   child: Column(
     crossAxisAlignment: CrossAxisAlignment.stretch,
