@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:js';
 import 'package:flutter/material.dart';
 import 'CounterFile.dart';
 import 'CreateFile.dart';
@@ -11,7 +12,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Tasbhee',
+      title: 'Splash Screen',
       theme: ThemeData(
         primarySwatch: Colors.green,
       ),
@@ -21,19 +22,35 @@ class MyApp extends StatelessWidget {
   }
 }
 
+
+
 class MyHomePage extends StatefulWidget {
+  const MyHomePage({Key? key}) : super(key: key);
   @override
   _MyHomePageState createState() => _MyHomePageState();
 }
 class _MyHomePageState extends State<MyHomePage> {
   @override
+  void initState() {
+    super.initState();
+    Timer(Duration(seconds: 5),
+            ()=>Navigator.pushReplacement(context,
+            MaterialPageRoute(builder:
+                (context) =>
+                gfgApp()
+            )
+        )
+    );
+  }
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
       height: double.infinity,
       decoration: const BoxDecoration(
         color: const Color(0xFF81C784),
-
+        image: DecorationImage(
+            image: AssetImage("images/tasbeeh pic.jpg"),
+            fit: BoxFit.cover),
     ),
     );
   }
@@ -52,14 +69,6 @@ MaterialApp gfgApp() {
           children: [
 
             Text('TASBEEH',style: TextStyle(color: Colors.yellow,fontWeight: FontWeight.bold),),
-
-            SizedBox(width: 150,),
-            TextButton(onPressed: (){}, child: Text('Custom',
-                textAlign: TextAlign.center,),),
-            SizedBox(width: 20,),
-
-            TextButton(onPressed: (){}, child: Text('Saved',textAlign: TextAlign.center,),),
-
           ],
         ),
       ), //AppBar
@@ -74,14 +83,16 @@ MaterialApp gfgApp() {
       children: [
         Expanded(
             child: ElevatedButton.icon(
-              onPressed:() {} ,
+              onPressed:() {
+                Navigator.push(context, MaterialPageRoute(builder: (context)=> CounterTasbeeh(TasbeehText: ' ', TasbeehCount: '',)));
+              } ,
               icon: Icon( // <-- Icon
                 Icons.create,
                 size: 24.0,
               ),
               label: Text('Custom'),
               style: ElevatedButton.styleFrom(
-                primary: Colors.teal.shade800,
+                primary: Colors.teal,
               ),
             ),
         ),
@@ -106,9 +117,9 @@ MaterialApp gfgApp() {
               Icons.access_time,
               size: 24.0,
             ),
-            label: Text('Counter'),
+            label: Text('Saved'),
             style: ElevatedButton.styleFrom(
-              primary: Colors.teal.shade800,
+              primary: Colors.teal,
             ),// <-- Text
           ),
         ),
@@ -135,7 +146,7 @@ MaterialApp gfgApp() {
             ),
             label: Text('All Tasbeeh'),
             style: ElevatedButton.styleFrom(
-              primary: Colors.teal.shade800,
+              primary: Colors.teal,
             ),// <-- Text
           ),
         )
