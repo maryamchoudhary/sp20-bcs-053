@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'dart:js';
+import 'package:path/path.dart';
 import 'package:flutter/material.dart';
 import 'CounterFile.dart';
 import 'CreateFile.dart';
@@ -56,7 +57,6 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 }
 
-
 MaterialApp gfgApp() {
   return MaterialApp(
     debugShowCheckedModeBanner: false,
@@ -68,92 +68,108 @@ MaterialApp gfgApp() {
         title: Row(
           children: [
 
-            Text('TASBEEH',style: TextStyle(color: Colors.yellow,fontWeight: FontWeight.bold),),
+            Text('TASBEEH', style: TextStyle(
+                color: Colors.yellow, fontWeight: FontWeight.bold),),
           ],
         ),
       ), //AppBar
-      body:Container(
+      body: Container(
         width: double.infinity,
         height: double.infinity,
         decoration: const BoxDecoration(
           color: const Color(0xFF81C784),
         ),
-  child: Column(
-    crossAxisAlignment: CrossAxisAlignment.stretch,
-      children: [
-        Expanded(
-            child: ElevatedButton.icon(
-              onPressed:() {
-                Navigator.push(context, MaterialPageRoute(builder: (context)=> CounterTasbeeh(TasbeehText: ' ', TasbeehCount: '',)));
-              } ,
-              icon: Icon( // <-- Icon
-                Icons.create,
-                size: 24.0,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            Expanded(
+              child: ElevatedButton.icon(
+                onPressed: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => const CreateTasbeeh()));
+                },
+                icon: Icon( // <-- Icon
+                  Icons.create,
+                  size: 24.0,
+                ),
+                label: Text('Custom'),
+                style: ElevatedButton.styleFrom(
+                  primary: Colors.teal,
+                ),
               ),
-              label: Text('Custom'),
-              style: ElevatedButton.styleFrom(
-                primary: Colors.teal,
+            ),
+            SizedBox(
+              height: 7,
+            ),
+            Divider(
+              color: Colors.lime.shade700,
+              //color of divider
+              height: 5,
+              //height spacing of divider
+              thickness: 2,
+              //thickness of divier line
+              indent: 25,
+              //spacing at the start of divider
+              endIndent: 25, //spacing at the end of divider
+            ),
+            SizedBox(
+              height: 7,
+            ),
+            Expanded(
+              child: ElevatedButton.icon(
+                onPressed: () {
+                  Navigator.push(context, MaterialPageRoute(
+                      builder: (context) => const CounterTasbeeh (
+                        TasbeehText: ' ',
+                        TasbeehCount: '',)));
+                },
+                icon: Icon( // <-- Icon
+                  Icons.access_time,
+                  size: 24.0,
+                ),
+                label: Text('Saved'),
+                style: ElevatedButton.styleFrom(
+                  primary: Colors.teal,
+                ), // <-- Text
               ),
             ),
-        ),
-        SizedBox(
-          height: 7,
-        ),
-        Divider(
-          color: Colors.lime.shade700, //color of divider
-          height: 5, //height spacing of divider
-          thickness: 2, //thickness of divier line
-          indent: 25, //spacing at the start of divider
-          endIndent: 25, //spacing at the end of divider
-        ),
-        SizedBox(
-          height: 7,
-        ),
-        Expanded(
-          child: ElevatedButton.icon(
-            onPressed: () {
-            },
-            icon: Icon( // <-- Icon
-              Icons.access_time,
-              size: 24.0,
+            SizedBox(
+              height: 7,
             ),
-            label: Text('Saved'),
-            style: ElevatedButton.styleFrom(
-              primary: Colors.teal,
-            ),// <-- Text
-          ),
-        ),
-        SizedBox(
-          height: 7,
-        ),
-        Divider(
-          color: Colors.lime.shade700, //color of divider
-          height: 5, //height spacing of divider
-          thickness: 2, //thickness of divier line
-          indent: 25, //spacing at the start of divider
-          endIndent: 25, //spacing at the end of divider
-        ),
-        SizedBox(
-          height: 7,
-        ),
-        Expanded(
-          child: ElevatedButton.icon(
-            onPressed: () {
-            },
-            icon: Icon( // <-- Icon
-              Icons.all_inclusive_outlined,
-              size: 24.0,
+            Divider(
+              color: Colors.lime.shade700,
+              //color of divider
+              height: 5,
+              //height spacing of divider
+              thickness: 2,
+              //thickness of divier line
+              indent: 25,
+              //spacing at the start of divider
+              endIndent: 25, //spacing at the end of divider
             ),
-            label: Text('All Tasbeeh'),
-            style: ElevatedButton.styleFrom(
-              primary: Colors.teal,
-            ),// <-- Text
-          ),
-        )
-      ],
-  ),
-    ),//Scaffold
-    //Removing Debug Banner
-  ),
+            SizedBox(
+              height: 7,
+            ),
+            Expanded(
+              child: ElevatedButton.icon(
+                onPressed: () {
+                  Navigator.push(context, MaterialPageRoute(
+                      builder: (context) => AllTasbeehFile()));
+                },
+                icon: Icon( // <-- Icon
+                  Icons.all_inclusive_outlined,
+                  size: 24.0,
+                ),
+                label: Text('All Tasbeeh'),
+                style: ElevatedButton.styleFrom(
+                  primary: Colors.teal,
+                ), // <-- Text
+              ),
+            )
+          ],
+        ),
+      ), //Scaffold
+      //Removing Debug Banner
+    ),
   );
 }

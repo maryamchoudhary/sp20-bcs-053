@@ -61,7 +61,7 @@ class _CreateTasbeehState extends State<CreateTasbeeh> {
                     Expanded(
                       child: ElevatedButton.icon(
                         onPressed: () {
-                          Navigator.push(context, MaterialPageRoute(builder: (context)=> CounterTasbeeh(TasbeehText: ' ', TasbeehCount: '',)));
+                          Navigator.push(context, MaterialPageRoute(builder: (context)=> const CounterTasbeeh (TasbeehText: ' ', TasbeehCount: '',)));
                         },
                         icon: Icon( // <-- Icon
                           Icons.access_time,
