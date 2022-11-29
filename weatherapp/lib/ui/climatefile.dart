@@ -13,11 +13,12 @@ class Climate extends StatefulWidget {
 }
 
 class _ClimateState extends State<Climate> {
+  var _cityFieldController = new TextEditingController();
   void showStuff() async{
     Map data = await getWeather(util.apiId, util.defaultCity);
     print(data.toString());
   }
-  late String _cityEntered;
+  String? _cityEntered;
   Future _goToNextScreen(BuildContext context )async{
     Map results = await Navigator.of(context).push(new MaterialPageRoute(builder: (BuildContext context)
     {
@@ -66,13 +67,23 @@ class _ClimateState extends State<Climate> {
             margin: EdgeInsets.fromLTRB(30.0, 190.0, 0.0, 0.0),
             child: updateTemWidget('${_cityEntered == null ? util.defaultCity : _cityEntered}'),
           ),
+          new ListTile(
+            title: new TextField(
+              decoration: new InputDecoration(
+                hintText: 'enter city',
+              ),
+              controller: _cityFieldController,
+              keyboardType: TextInputType.text,
+            ),
+          ),
+
         ],
       ),
     );
   }
   Future <Map> getWeather(String appId, String city) async{
-    String apiUrl= 'https://api.openweathermap.org/data/2.5/weather?lat=44.34&lon=10.99&appid={API key}';
-    http.Response response = await http.get(apiUrl);
+    String? apiUrl= 'https://api.openweathermap.org/data/2.5/weather?lat=44.34&lon=10.99&appid={API key}';
+    http.Response response = await http.get(Uri());
     return json.decode(response.body);
   }
   Widget updateTemWidget(String city) {
@@ -143,7 +154,6 @@ class ChangeCity extends StatelessWidget {
           new ListTile(
             title: new FloatingActionButton(
               onPressed: (){
-                Navigator.pop(context,{'enter': _cityFieldController.text});
               },
             ),
           )
