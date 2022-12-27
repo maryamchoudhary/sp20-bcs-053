@@ -1,16 +1,4 @@
 # party
+![560f8c85-d4e7-46ad-bfb3-8c282323658e](https://user-images.githubusercontent.com/115917238/209613659-b82fca49-42dc-4c8d-924b-4dde267de2b6.jpg)
+![ccae30df-9064-4732-ace7-40be4c580634](https://user-images.githubusercontent.com/115917238/209613684-1c17ee04-6712-4734-b161-d2e19c63e223.jpg)
 
-A new Flutter project.
-
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
