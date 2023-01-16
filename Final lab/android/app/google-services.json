@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "158568530333",
+    "project_id": "gameodd-3e013",
+    "storage_bucket": "gameodd-3e013.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:158568530333:android:e9ad5f7d19203139ba2f74",
+        "android_client_info": {
+          "package_name": "com.example.finalgame"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "158568530333-gcb73tm6co2koq13oohlsv4uq82h2tq9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCBGwqoxorL9LGcqweOS_ieJiYKbUkXon8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "158568530333-gcb73tm6co2koq13oohlsv4uq82h2tq9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
